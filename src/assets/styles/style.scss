@@ -3,6 +3,7 @@
  *  @description Style Foodies Landing SASS
  *  @date 02/noviembre/2021 
 **/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 $colorAndriod: #A3C439;
 $widthContainer: 200px;
 $heightContainer: 300px;
@@ -11,6 +12,7 @@ $margin: 7px;
 * {
     margin:  0px;
     padding: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 div {
@@ -119,5 +121,16 @@ div#container-android {
 }
 
 #action {
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 60px;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 8px 20px 8px 20px;
+    text-transform: uppercase;
+
+    &>option {
+        width: 100%;
+        font-size: 1rem;
+        font-weight: 400;
+    }
 }
