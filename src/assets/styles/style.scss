@@ -20,6 +20,7 @@ div {
 div#container-android { 
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
 
@@ -29,13 +30,14 @@ div#container-android {
         justify-content: center; 
         align-items: center;
         flex-direction: column;
-        
+
         &>div { 
             justify-content: center;
             align-items: center;
             flex-direction: column;
             
             &.antennas-android {
+                position: relative;
                 
                 &::before {
                     content: '';
@@ -86,6 +88,7 @@ div#container-android {
                 background-color: $colorAndriod;
                 margin-top: $margin; 
                 border-radius: 0px 0px 20px 20px;
+                position: relative;
 
                 &::before {
                     content: '';
@@ -113,4 +116,8 @@ div#container-android {
             }
         }
     }
+}
+
+#action {
+    margin-top: 20px;
 }

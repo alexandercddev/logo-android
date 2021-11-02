@@ -15,6 +15,7 @@ div {
 div#container-android {
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
@@ -29,6 +30,9 @@ div#container-android > div.content-android > div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+div#container-android > div.content-android > div.antennas-android {
+  position: relative;
 }
 div#container-android > div.content-android > div.antennas-android::before {
   content: "";
@@ -74,6 +78,7 @@ div#container-android > div.content-android > div.body-android {
   background-color: #A3C439;
   margin-top: 7px;
   border-radius: 0px 0px 20px 20px;
+  position: relative;
 }
 div#container-android > div.content-android > div.body-android::before {
   content: "";
@@ -96,6 +101,10 @@ div#container-android > div.content-android > div.body-android::after {
   margin-left: -50px;
   margin-top: 119px;
   box-shadow: 50px 0px 0px #A3C439;
+}
+
+#action {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
