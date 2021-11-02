@@ -1,0 +1,101 @@
+/** 
+ *  @author alexandercddev
+ *  @description Style Foodies Landing SASS
+ *  @date 02/noviembre/2021 
+**/
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+div {
+  display: flex;
+}
+
+div#container-android {
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+div#container-android > div.content-android {
+  width: 200px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div#container-android > div.content-android > div {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div#container-android > div.content-android > div.antennas-android::before {
+  content: "";
+  width: 5px;
+  height: 30px;
+  background-color: #A3C439;
+  border-radius: 5px;
+  transform: rotate(-35deg);
+  margin-left: -100px;
+  margin-top: 10px;
+  position: absolute;
+}
+div#container-android > div.content-android > div.antennas-android::after {
+  content: "";
+  width: 5px;
+  height: 30px;
+  background-color: #A3C439;
+  border-radius: 5px;
+  transform: rotate(35deg);
+  margin-left: 100px;
+  margin-top: 10px;
+  position: absolute;
+}
+div#container-android > div.content-android > div.head-android {
+  width: 150px;
+  height: 75px;
+  background-color: #A3C439;
+  border-radius: 100px 100px 0px 0px;
+}
+div#container-android > div.content-android > div.head-android::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 100%;
+  margin-left: -70px;
+  box-shadow: 70px 0px 0px #fff;
+}
+div#container-android > div.content-android > div.body-android {
+  width: 150px;
+  height: 125px;
+  background-color: #A3C439;
+  margin-top: 7px;
+  border-radius: 0px 0px 20px 20px;
+}
+div#container-android > div.content-android > div.body-android::before {
+  content: "";
+  width: 30px;
+  height: 100px;
+  position: absolute;
+  background-color: #A3C439;
+  border-radius: 20px;
+  margin-left: -193px;
+  margin-top: -30px;
+  box-shadow: 192px 0px 0px #A3C439;
+}
+div#container-android > div.content-android > div.body-android::after {
+  content: "";
+  width: 30px;
+  height: 100px;
+  position: absolute;
+  background-color: #A3C439;
+  border-radius: 20px;
+  margin-left: -50px;
+  margin-top: 119px;
+  box-shadow: 50px 0px 0px #A3C439;
+}
+
+/*# sourceMappingURL=style.css.map */

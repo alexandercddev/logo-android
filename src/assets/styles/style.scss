@@ -1,0 +1,116 @@
+/** 
+ *  @author alexandercddev
+ *  @description Style Foodies Landing SASS
+ *  @date 02/noviembre/2021 
+**/
+$colorAndriod: #A3C439;
+$widthContainer: 200px;
+$heightContainer: 300px;
+$margin: 7px;
+
+* {
+    margin:  0px;
+    padding: 0px;
+}
+
+div {
+    display: flex; 
+}
+
+div#container-android { 
+    justify-content: center;
+    align-items: center; 
+    width: 100vw;
+    height: 100vh;
+
+    &>div.content-android {
+        width: $widthContainer;
+        height: $heightContainer; 
+        justify-content: center; 
+        align-items: center;
+        flex-direction: column;
+        
+        &>div { 
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            
+            &.antennas-android {
+                
+                &::before {
+                    content: '';
+                    width: 5px;
+                    height: 30px;
+                    background-color: $colorAndriod;
+                    border-radius: 5px;
+                    transform: rotate(-35deg);
+                    margin-left: -100px; 
+                    margin-top: 10px;
+                    position: absolute;
+                }
+
+                &::after {
+                    content: '';
+                    width: 5px;
+                    height: 30px;
+                    background-color: $colorAndriod;
+                    border-radius: 5px;
+                    transform: rotate(35deg);
+                    margin-left: 100px; 
+                    margin-top: 10px;
+                    position: absolute;
+                }
+            }
+
+            &.head-android { 
+                width: $widthContainer - 50px;
+                height: $widthContainer - 125px;
+                background-color: $colorAndriod;
+                border-radius: 100px 100px 0px 0px;
+
+                &::before {
+                    content: '';
+                    width: 12px;
+                    height: 12px;
+                    position: absolute; 
+                    background-color: #fff;
+                    border-radius: 100%;
+                    margin-left: -70px; 
+                    box-shadow: 70px 0px 0px #fff;
+                }
+            }
+
+            &.body-android {
+                width: $widthContainer - 50px;
+                height: $widthContainer - 75px;
+                background-color: $colorAndriod;
+                margin-top: $margin; 
+                border-radius: 0px 0px 20px 20px;
+
+                &::before {
+                    content: '';
+                    width: 30px;
+                    height: $widthContainer - 100px;
+                    position: absolute; 
+                    background-color: $colorAndriod;
+                    border-radius: 20px;
+                    margin-left: -186px - $margin; 
+                    margin-top: -30px;
+                    box-shadow: (185px + $margin) 0px 0px $colorAndriod;
+                }
+
+                &::after {
+                    content: '';
+                    width: 30px;
+                    height: $widthContainer - 100px;
+                    position: absolute; 
+                    background-color: $colorAndriod;
+                    border-radius: 20px;
+                    margin-left: -50px; 
+                    margin-top: 119px;
+                    box-shadow: 50px 0px 0px $colorAndriod;
+                }
+            }
+        }
+    }
+}
