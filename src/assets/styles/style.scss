@@ -4,10 +4,19 @@
  *  @date 02/noviembre/2021 
 **/
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
-$colorAndriod: #A3C439;
+$colorAndriod: hsl(74, 55%, 50%);
 $widthContainer: 200px;
 $heightContainer: 300px;
 $margin: 7px;
+
+@mixin background-android($deg) {
+    background: linear-gradient(
+        $deg, 
+        hsl(74, 55%, 50%) 0%, 
+        hsl(74, 76%, 58%) 50%, 
+        hsl(74, 55%, 50%) 100%);
+}
+
 
 * {
     margin:  0px;
@@ -26,7 +35,7 @@ div#container-android {
     width: 100vw;
     height: 100vh;
 
-    &>div.content-android {
+    &>div#content-android {
         width: $widthContainer;
         height: $heightContainer; 
         justify-content: center; 
@@ -38,39 +47,70 @@ div#container-android {
             align-items: center;
             flex-direction: column;
             
-            &.antennas-android {
+            &#antennas {
                 position: relative;
-                
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+                z-index: -2;
                 &::before {
                     content: '';
                     width: 5px;
                     height: 30px;
-                    background-color: $colorAndriod;
+                    @include background-android(90deg);
                     border-radius: 5px;
                     transform: rotate(-35deg);
                     margin-left: -100px; 
                     margin-top: 10px;
-                    position: absolute;
+                    position: absolute; 
                 }
 
                 &::after {
                     content: '';
                     width: 5px;
                     height: 30px;
-                    background-color: $colorAndriod;
+                    @include background-android(90deg);
                     border-radius: 5px;
                     transform: rotate(35deg);
                     margin-left: 100px; 
                     margin-top: 10px;
                     position: absolute;
+                    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+                } 
+
+                &::before {
+                    animation: hello-antenna-l 3.5s linear infinite;
+                }
+
+                &::after {
+                    animation: hello-antenna-r 3.5s linear infinite;
+                }
+
+                &.animation-hello,
+                &.animation-jump { 
+                    animation: hello-hand-head 1.5s linear infinite;
+                      
+                }
+
+                &.animation-disarm {
+                    &::before {
+                        animation: disarm-l 0.5s linear normal;
+                        margin-left: 40px; 
+                        margin-top: 500px;
+                    }
+    
+                    &::after {
+                        animation: disarm-r 0.5s linear normal;
+                        margin-left: 0px; 
+                        margin-top: 500px;
+                    }
                 }
             }
 
-            &.head-android { 
+            &#head { 
                 width: $widthContainer - 50px;
                 height: $widthContainer - 125px;
-                background-color: $colorAndriod;
+                @include background-android(90deg);
                 border-radius: 100px 100px 0px 0px;
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
 
                 &::before {
                     content: '';
@@ -81,47 +121,126 @@ div#container-android {
                     border-radius: 100%;
                     margin-left: -70px; 
                     box-shadow: 70px 0px 0px #fff;
+                    animation: eyes 1s linear infinite;
+                }
+
+                &.animation-hello,
+                &.animation-jump { 
+                    animation: hello-hand-head 1.5s linear infinite;
+                      
+                }
+
+                &.animation-disarm { 
+                    animation: disarm-head 0.5s linear normal;
+                    transform: translate(-260px, 200px) rotate(-220deg);
                 }
             }
 
-            &.body-android {
+            &#body {
                 width: $widthContainer - 50px;
                 height: $widthContainer - 75px;
-                background-color: $colorAndriod;
+                @include background-android(90deg);
                 margin-top: $margin; 
                 border-radius: 0px 0px 20px 20px;
-                position: relative;
+                position: relative; 
 
                 &::before {
                     content: '';
                     width: 30px;
                     height: $widthContainer - 100px;
                     position: absolute; 
-                    background-color: $colorAndriod;
+                    background: $colorAndriod;
                     border-radius: 20px;
                     margin-left: -186px - $margin; 
                     margin-top: -30px;
-                    box-shadow: (185px + $margin) 0px 0px $colorAndriod;
+                    box-shadow: (185px + $margin) 0px 0px $colorAndriod,
+                    0 5px 5px 0px rgba(0,0,0,0.2),
+                    (185px + $margin) 5px 5px 0px rgba(0,0,0,0.2);
                 }
+
+                
+
+                &.animation-hello,
+                &.animation-jump { 
+                    animation: hello-hand-body 1.5s linear infinite;
+                     
+                    &::before {
+                        animation: hello-hand 1.5s linear infinite;
+                        
+                    } 
+                }
+
+                &.animation-disarm { 
+                    animation: disarm-body 0.5s linear normal;
+                    transform: translate(-120px, 30px) rotate(-45deg);
+                }
+
+                &.animation-cha {  
+                    &::before {
+                        animation: cha-hand 0.5s alternate-reverse infinite; 
+                        margin-top: -60px; 
+                        box-shadow: (185px + $margin) 30px 0px $colorAndriod,
+                        0 5px 5px 0px rgba(0,0,0,0.2),
+                        (185px + $margin) 35px 5px 0px rgba(0,0,0,0.2);
+                    } 
+                }
+                
+            }
+
+            &#lengs {
+                position: relative;
+                z-index: -100;
 
                 &::after {
                     content: '';
                     width: 30px;
                     height: $widthContainer - 100px;
                     position: absolute; 
-                    background-color: $colorAndriod;
+                    @include background-android(90deg);
                     border-radius: 20px;
-                    margin-left: -50px; 
-                    margin-top: 119px;
-                    box-shadow: 50px 0px 0px $colorAndriod;
+                    margin-left: -50px;  
+                    box-shadow: 50px 0px 0px $colorAndriod,
+                        inset 50px 33px 25px 0 $colorAndriod,   
+                        50px 5px 5px rgba(0,0,0,0.2),
+                        0px 5px 5px rgba(0,0,0,0.2); 
+                    z-index: -100;
+                }
+
+                &.animation-jump {  
+                    &::after {
+                        animation: hello-hand-leng 2.5s linear infinite;
+                    }
+                }
+
+                &.animation-disarm {
+                    &::after {  
+                        animation: disarm 0.5s linear normal;
+                        box-shadow: 30px 20px 0px $colorAndriod; 
+                        transform: rotate(70deg);
+                    }
+                }
+
+                &.animation-cha {  
+                    &::after {
+                        animation: cha-lengs 0.5s alternate-reverse infinite; 
+                        margin-top: -30px; 
+                        box-shadow: 50px 15px 0px $colorAndriod,  
+                            inset 50px 33px 25px 0 $colorAndriod,
+                            50px 20px 5px rgba(0,0,0,0.2),
+                            0px 5px 5px rgba(0,0,0,0.2); 
+                    } 
                 }
             }
+        }
+
+        &.animation-cha {
+            animation: cha-cont 5.5s linear infinite;
         }
     }
 }
 
 #action {
-    width: 100%;
+    width: 250px;
     margin-top: 60px;
     cursor: pointer;
     border-radius: 20px;
@@ -133,4 +252,270 @@ div#container-android {
         font-size: 1rem;
         font-weight: 400;
     }
+}
+
+.animation-yes {
+    animation: yes 1.5s linear infinite;
+}
+
+.animation-no {
+    animation: no 1.5s linear infinite;
+}
+
+
+
+@keyframes yes{
+    0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+@keyframes no{
+    0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatex(0px);
+	}
+	25% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatex(10px);
+	}
+    50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatex(0px);
+	}
+    75% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatex(-10px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatex(0px);
+	}
+}
+
+@keyframes hello-antenna-r{
+    0% { 
+		transform: rotate(35deg);
+	}
+	25% { 
+		transform: rotate(20deg);
+	}
+    50% { 
+		transform: rotate(35deg);
+	}  
+    75% { 
+		transform: rotate(50deg);
+	}  
+    100% { 
+		transform: rotate(35deg);
+	} 
+}
+
+@keyframes hello-antenna-l{
+    0% { 
+		transform: rotate(-35deg);
+	}
+	25% { 
+		transform: rotate(-20deg);
+	}
+    50% { 
+		transform: rotate(-35deg);
+	}  
+    75% { 
+		transform: rotate(-50deg);
+	}  
+    100% { 
+		transform: rotate(-35deg);
+	} 
+}
+
+@keyframes hello-hand{
+    0% { 
+		transform: translatey(-75px) rotate(-5deg);
+	}
+	50% { 
+		transform: translatey(-50px) rotate(0deg);
+	}
+	100% { 
+		transform: translatey(-75px) rotate(5deg);
+	}
+}
+
+@keyframes hello-hand-leng{
+    0% { 
+		transform: translatey(-15px) rotate(-5deg); 
+	}
+	50% { 
+		transform: translatey(0px) rotate(0deg); 
+	}
+	100% { 
+		transform: translatey(-15px) rotate(5deg); 
+	}
+} 
+
+@keyframes hello-hand-body{
+    0% { 
+		transform: translatey(-15px) rotate(-5deg); 
+	}
+	50% { 
+		transform: translatey(0px) rotate(0deg); 
+	}
+	100% { 
+		transform: translatey(-15px) rotate(5deg); 
+	}
+} 
+
+@keyframes hello-hand-head{
+    0% { 
+		transform: translatey(-15px) rotate(-5deg); 
+	}
+	50% { 
+		transform: translatey(0px) rotate(0deg); 
+	}
+	100% { 
+		transform: translatey(-15px) rotate(5deg); 
+	}
+} 
+
+@keyframes disarm{
+    0% {
+		transform: rotate(0deg);
+        box-shadow: 50px 0px 0px $colorAndriod;
+	} 
+	100% {
+		transform: rotate(70deg);
+        box-shadow: 30px 20px 0px $colorAndriod;
+	}
+}
+
+@keyframes disarm-body{
+    0% {
+		transform: translate(0px, 0px) rotate(0deg);
+	} 
+	100% {
+		transform: translate(-120px, 30px) rotate(-45deg);
+	}
+}
+
+@keyframes disarm-head {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-260px, 200px) rotate(-220deg);
+    }
+}
+
+@keyframes eyes {
+    0% {
+        width: 12px;
+    }
+    50% {   
+        height: 0px;
+    }
+    100% {   
+        height: 12px;
+    }
+}
+
+@keyframes disarm-l {
+    0% {
+        margin-left: -100px; 
+        margin-top: 10px;
+    }
+    50% {   
+        margin-left: 20px; 
+        margin-top: 250px;
+    }
+    100% {   
+        margin-left: 40px; 
+        margin-top: 500px;
+    }
+}
+
+@keyframes disarm-r {
+    0% {
+        margin-left: 100px; 
+        margin-top: 10px;
+    }
+    50% {   
+        margin-left: 0px; 
+        margin-top: 250px;
+    }
+    100% {   
+        margin-left: 0px; 
+        margin-top: 500px;
+    }
+}
+
+@keyframes cha-hand {
+    0% { 
+        margin-top: -30px;
+        box-shadow: (185px + $margin) 0px 0px $colorAndriod,
+            0 5px 5px 0px rgba(0,0,0,0.2),
+            (185px + $margin) 5px 5px 0px rgba(0,0,0,0.2);
+    } 
+    100% {   
+        margin-top: -60px;  
+        box-shadow: (185px + $margin) 30px 0px $colorAndriod,
+            0 5px 5px 0px rgba(0,0,0,0.2),
+            (185px + $margin) 35px 5px 0px rgba(0,0,0,0.2);
+    }
+}
+
+@keyframes cha-lengs {
+    0% {
+        margin-top: 0px; 
+        box-shadow: 50px -20px 0px $colorAndriod,
+            inset 50px 33px 25px 0 $colorAndriod,   
+            50px -15px 5px rgba(0,0,0,0.2),
+            0px 5px 5px rgba(0,0,0,0.2); 
+    }
+    100% {
+        margin-top: -30px; 
+        box-shadow: 50px 15px 0px $colorAndriod,  
+            inset 50px 33px 25px 0 $colorAndriod,
+            50px 20px 5px rgba(0,0,0,0.2),
+            0px 5px 5px rgba(0,0,0,0.2); 
+    }
+}
+
+@keyframes cha-cont {
+    0%{
+        transform: translate(0px);
+    } 
+    12%{
+        transform: translate(-50px);
+    } 
+    24%{
+        transform: translate(-100px);
+    } 
+    36%{
+        transform: translate(-50px);
+    } 
+
+    48%{
+        transform: translate(0px);
+    } 
+    60%{
+        transform: translate(50px);
+    } 
+    72%{
+        transform: translate(100px);
+    } 
+    86%{
+        transform: translate(50px);
+    } 
+    100%{
+        transform: translate(0px);
+    } 
 }

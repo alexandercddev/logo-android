@@ -21,50 +21,73 @@ div#container-android {
   width: 100vw;
   height: 100vh;
 }
-div#container-android > div.content-android {
+div#container-android > div#content-android {
   width: 200px;
   height: 300px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-div#container-android > div.content-android > div {
+div#container-android > div#content-android > div {
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-div#container-android > div.content-android > div.antennas-android {
+div#container-android > div#content-android > div#antennas {
   position: relative;
+  box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+  z-index: -2;
 }
-div#container-android > div.content-android > div.antennas-android::before {
+div#container-android > div#content-android > div#antennas::before {
   content: "";
   width: 5px;
   height: 30px;
-  background-color: #A3C439;
+  background: linear-gradient(90deg, #a5c639 0%, #bfe543 50%, #a5c639 100%);
   border-radius: 5px;
   transform: rotate(-35deg);
   margin-left: -100px;
   margin-top: 10px;
   position: absolute;
 }
-div#container-android > div.content-android > div.antennas-android::after {
+div#container-android > div#content-android > div#antennas::after {
   content: "";
   width: 5px;
   height: 30px;
-  background-color: #A3C439;
+  background: linear-gradient(90deg, #a5c639 0%, #bfe543 50%, #a5c639 100%);
   border-radius: 5px;
   transform: rotate(35deg);
   margin-left: 100px;
   margin-top: 10px;
   position: absolute;
+  box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
 }
-div#container-android > div.content-android > div.head-android {
+div#container-android > div#content-android > div#antennas::before {
+  animation: hello-antenna-l 3.5s linear infinite;
+}
+div#container-android > div#content-android > div#antennas::after {
+  animation: hello-antenna-r 3.5s linear infinite;
+}
+div#container-android > div#content-android > div#antennas.animation-hello, div#container-android > div#content-android > div#antennas.animation-jump {
+  animation: hello-hand-head 1.5s linear infinite;
+}
+div#container-android > div#content-android > div#antennas.animation-disarm::before {
+  animation: disarm-l 0.5s linear normal;
+  margin-left: 40px;
+  margin-top: 500px;
+}
+div#container-android > div#content-android > div#antennas.animation-disarm::after {
+  animation: disarm-r 0.5s linear normal;
+  margin-left: 0px;
+  margin-top: 500px;
+}
+div#container-android > div#content-android > div#head {
   width: 150px;
   height: 75px;
-  background-color: #A3C439;
+  background: linear-gradient(90deg, #a5c639 0%, #bfe543 50%, #a5c639 100%);
   border-radius: 100px 100px 0px 0px;
+  box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
 }
-div#container-android > div.content-android > div.head-android::before {
+div#container-android > div#content-android > div#head::before {
   content: "";
   width: 12px;
   height: 12px;
@@ -73,40 +96,83 @@ div#container-android > div.content-android > div.head-android::before {
   border-radius: 100%;
   margin-left: -70px;
   box-shadow: 70px 0px 0px #fff;
+  animation: eyes 1s linear infinite;
 }
-div#container-android > div.content-android > div.body-android {
+div#container-android > div#content-android > div#head.animation-hello, div#container-android > div#content-android > div#head.animation-jump {
+  animation: hello-hand-head 1.5s linear infinite;
+}
+div#container-android > div#content-android > div#head.animation-disarm {
+  animation: disarm-head 0.5s linear normal;
+  transform: translate(-260px, 200px) rotate(-220deg);
+}
+div#container-android > div#content-android > div#body {
   width: 150px;
   height: 125px;
-  background-color: #A3C439;
+  background: linear-gradient(90deg, #a5c639 0%, #bfe543 50%, #a5c639 100%);
   margin-top: 7px;
   border-radius: 0px 0px 20px 20px;
   position: relative;
 }
-div#container-android > div.content-android > div.body-android::before {
+div#container-android > div#content-android > div#body::before {
   content: "";
   width: 30px;
   height: 100px;
   position: absolute;
-  background-color: #A3C439;
+  background: #a5c639;
   border-radius: 20px;
   margin-left: -193px;
   margin-top: -30px;
-  box-shadow: 192px 0px 0px #A3C439;
+  box-shadow: 192px 0px 0px #a5c639, 0 5px 5px 0px rgba(0, 0, 0, 0.2), 192px 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
-div#container-android > div.content-android > div.body-android::after {
+div#container-android > div#content-android > div#body.animation-hello, div#container-android > div#content-android > div#body.animation-jump {
+  animation: hello-hand-body 1.5s linear infinite;
+}
+div#container-android > div#content-android > div#body.animation-hello::before, div#container-android > div#content-android > div#body.animation-jump::before {
+  animation: hello-hand 1.5s linear infinite;
+}
+div#container-android > div#content-android > div#body.animation-disarm {
+  animation: disarm-body 0.5s linear normal;
+  transform: translate(-120px, 30px) rotate(-45deg);
+}
+div#container-android > div#content-android > div#body.animation-cha::before {
+  animation: cha-hand 0.5s alternate-reverse infinite;
+  margin-top: -60px;
+  box-shadow: 192px 30px 0px #a5c639, 0 5px 5px 0px rgba(0, 0, 0, 0.2), 192px 35px 5px 0px rgba(0, 0, 0, 0.2);
+}
+div#container-android > div#content-android > div#lengs {
+  position: relative;
+  z-index: -100;
+}
+div#container-android > div#content-android > div#lengs::after {
   content: "";
   width: 30px;
   height: 100px;
   position: absolute;
-  background-color: #A3C439;
+  background: linear-gradient(90deg, #a5c639 0%, #bfe543 50%, #a5c639 100%);
   border-radius: 20px;
   margin-left: -50px;
-  margin-top: 119px;
-  box-shadow: 50px 0px 0px #A3C439;
+  box-shadow: 50px 0px 0px #a5c639, inset 50px 33px 25px 0 #a5c639, 50px 5px 5px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  z-index: -100;
+}
+div#container-android > div#content-android > div#lengs.animation-jump::after {
+  animation: hello-hand-leng 2.5s linear infinite;
+}
+div#container-android > div#content-android > div#lengs.animation-disarm::after {
+  animation: disarm 0.5s linear normal;
+  box-shadow: 30px 20px 0px #a5c639;
+  transform: rotate(70deg);
+}
+div#container-android > div#content-android > div#lengs.animation-cha::after {
+  animation: cha-lengs 0.5s alternate-reverse infinite;
+  margin-top: -30px;
+  box-shadow: 50px 15px 0px #a5c639, inset 50px 33px 25px 0 #a5c639, 50px 20px 5px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+div#container-android > div#content-android.animation-cha {
+  animation: cha-cont 5.5s linear infinite;
 }
 
 #action {
-  width: 100%;
+  width: 250px;
   margin-top: 60px;
   cursor: pointer;
   border-radius: 20px;
@@ -117,6 +183,243 @@ div#container-android > div.content-android > div.body-android::after {
   width: 100%;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.animation-yes {
+  animation: yes 1.5s linear infinite;
+}
+
+.animation-no {
+  animation: no 1.5s linear infinite;
+}
+
+@keyframes yes {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+@keyframes no {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatex(0px);
+  }
+  25% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatex(10px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatex(0px);
+  }
+  75% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatex(-10px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatex(0px);
+  }
+}
+@keyframes hello-antenna-r {
+  0% {
+    transform: rotate(35deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+  75% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(35deg);
+  }
+}
+@keyframes hello-antenna-l {
+  0% {
+    transform: rotate(-35deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+  75% {
+    transform: rotate(-50deg);
+  }
+  100% {
+    transform: rotate(-35deg);
+  }
+}
+@keyframes hello-hand {
+  0% {
+    transform: translatey(-75px) rotate(-5deg);
+  }
+  50% {
+    transform: translatey(-50px) rotate(0deg);
+  }
+  100% {
+    transform: translatey(-75px) rotate(5deg);
+  }
+}
+@keyframes hello-hand-leng {
+  0% {
+    transform: translatey(-15px) rotate(-5deg);
+  }
+  50% {
+    transform: translatey(0px) rotate(0deg);
+  }
+  100% {
+    transform: translatey(-15px) rotate(5deg);
+  }
+}
+@keyframes hello-hand-body {
+  0% {
+    transform: translatey(-15px) rotate(-5deg);
+  }
+  50% {
+    transform: translatey(0px) rotate(0deg);
+  }
+  100% {
+    transform: translatey(-15px) rotate(5deg);
+  }
+}
+@keyframes hello-hand-head {
+  0% {
+    transform: translatey(-15px) rotate(-5deg);
+  }
+  50% {
+    transform: translatey(0px) rotate(0deg);
+  }
+  100% {
+    transform: translatey(-15px) rotate(5deg);
+  }
+}
+@keyframes disarm {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 50px 0px 0px #a5c639;
+  }
+  100% {
+    transform: rotate(70deg);
+    box-shadow: 30px 20px 0px #a5c639;
+  }
+}
+@keyframes disarm-body {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-120px, 30px) rotate(-45deg);
+  }
+}
+@keyframes disarm-head {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-260px, 200px) rotate(-220deg);
+  }
+}
+@keyframes eyes {
+  0% {
+    width: 12px;
+  }
+  50% {
+    height: 0px;
+  }
+  100% {
+    height: 12px;
+  }
+}
+@keyframes disarm-l {
+  0% {
+    margin-left: -100px;
+    margin-top: 10px;
+  }
+  50% {
+    margin-left: 20px;
+    margin-top: 250px;
+  }
+  100% {
+    margin-left: 40px;
+    margin-top: 500px;
+  }
+}
+@keyframes disarm-r {
+  0% {
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+  50% {
+    margin-left: 0px;
+    margin-top: 250px;
+  }
+  100% {
+    margin-left: 0px;
+    margin-top: 500px;
+  }
+}
+@keyframes cha-hand {
+  0% {
+    margin-top: -30px;
+    box-shadow: 192px 0px 0px #a5c639, 0 5px 5px 0px rgba(0, 0, 0, 0.2), 192px 5px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    margin-top: -60px;
+    box-shadow: 192px 30px 0px #a5c639, 0 5px 5px 0px rgba(0, 0, 0, 0.2), 192px 35px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes cha-lengs {
+  0% {
+    margin-top: 0px;
+    box-shadow: 50px -20px 0px #a5c639, inset 50px 33px 25px 0 #a5c639, 50px -15px 5px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    margin-top: -30px;
+    box-shadow: 50px 15px 0px #a5c639, inset 50px 33px 25px 0 #a5c639, 50px 20px 5px rgba(0, 0, 0, 0.2), 0px 5px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes cha-cont {
+  0% {
+    transform: translate(0px);
+  }
+  12% {
+    transform: translate(-50px);
+  }
+  24% {
+    transform: translate(-100px);
+  }
+  36% {
+    transform: translate(-50px);
+  }
+  48% {
+    transform: translate(0px);
+  }
+  60% {
+    transform: translate(50px);
+  }
+  72% {
+    transform: translate(100px);
+  }
+  86% {
+    transform: translate(50px);
+  }
+  100% {
+    transform: translate(0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
